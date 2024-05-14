@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_GW_NAME_VALUES</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Gateway Name Value Pairs</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>AS_SELECT_OPTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns a select-options based on equalities</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>AS_SQL_WHERE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns an SQL where clause based on equalities</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Creates a new pair list</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DATA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the data as is</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>AS_SELECT_OPTIONS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Select-options</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>AS_SQL_WHERE</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>SQL where</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>I_DATA</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DATA</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Raw data</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

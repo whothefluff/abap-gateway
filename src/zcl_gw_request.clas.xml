@@ -18,6 +18,11 @@
      <DESCRIPT>Creates a new wrapper</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>CURRENT_ENTITY_KEYS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the key properties of the current entity</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>CURRENT_ENTITY_NAME</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Returns the entity name of the current request</DESCRIPT>
@@ -53,6 +58,16 @@
      <DESCRIPT>Returns the model associated with the request</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>NAVIGATION_SOURCE_SQL_FIELDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns only the source fields as an SQL clause</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NAVIGATION_TARGET_SQL_FIELDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns only the target fields as an SQL clause</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>ORIGINAL</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Returns the standard request</DESCRIPT>
@@ -60,7 +75,7 @@
     <SEOCOMPOTX>
      <CMPNAME>SQL_FIELDS</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Returns the $select query as a SQL clause</DESCRIPT>
+     <DESCRIPT>Returns the $select query as an SQL clause</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>SQL_WHERE</CMPNAME>
@@ -84,6 +99,18 @@
      <SCONAME>I_ORIGINAL_REQUEST</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Standard request</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CURRENT_ENTITY_KEYS</CMPNAME>
+     <SCONAME>/IWBEP/CX_MGW_MED_EXCEPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Meta</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CURRENT_ENTITY_KEYS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Properties flagged as key</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CURRENT_ENTITY_NAME</CMPNAME>
@@ -150,6 +177,18 @@
      <SCONAME>R_VAL</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Model</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NAVIGATION_SOURCE_SQL_FIELDS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Fields before &apos;/&apos;</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NAVIGATION_TARGET_SQL_FIELDS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Fields after &apos;/&apos;</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ORIGINAL</CMPNAME>

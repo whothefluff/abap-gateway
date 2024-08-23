@@ -15,6 +15,8 @@ class zcl_gw_request definition
 
     types t_entity_type type ref to /iwbep/cl_mgw_odata_entity_typ.
 
+    types t_entity_keys type /iwbep/if_mgw_med_odata_types=>ty_t_med_properties.
+
     types: begin of t_key_entry,
              name type /iwbep/med_external_name,
              value type string,
@@ -93,7 +95,7 @@ class zcl_gw_request definition
               raising
                 /iwbep/cx_mgw_med_exception.
 
-    "! <p class="shorttext synchronized" lang="EN">Returns a SQL where clause based on the $filter query</p>
+    "! <p class="shorttext synchronized" lang="EN">Returns an SQL where clause based on the $filter query</p>
     "!
     "! @parameter r_val | <p class="shorttext synchronized" lang="EN">Filter query as SQL where</p>
     "! @raising /iwbep/cx_mgw_busi_exception | <p class="shorttext synchronized" lang="EN">Business Exception</p>
@@ -103,7 +105,7 @@ class zcl_gw_request definition
               raising
                 /iwbep/cx_mgw_busi_exception.
 
-    "! <p class="shorttext synchronized" lang="EN">Returns a SQL where clause based on the $filter or the keys</p>
+    "! <p class="shorttext synchronized" lang="EN">Returns an SQL where clause based on the $filter or the keys</p>
     "!
     "! @parameter i_mappings | <p class="shorttext synchronized" lang="EN">Mapping for the names of the keys</p>
     "! @parameter r_val | <p class="shorttext synchronized" lang="EN">Access conditions as SQL where</p>
@@ -118,10 +120,24 @@ class zcl_gw_request definition
                 /iwbep/cx_mgw_med_exception
                 /iwbep/cx_mgw_busi_exception.
 
-    "! <p class="shorttext synchronized" lang="EN">Returns the $select query as a SQL clause</p>
+    "! <p class="shorttext synchronized" lang="EN">Returns the $select query as an SQL clause</p>
     "!
     "! @parameter r_val | <p class="shorttext synchronized" lang="EN">Select query as SQL fields</p>
     methods sql_fields
+              returning
+                value(r_val) type string.
+
+    "! <p class="shorttext synchronized" lang="EN">Returns only the target fields as an SQL clause</p>
+    "!
+    "! @parameter r_val | <p class="shorttext synchronized" lang="EN">Fields after '/'</p>
+    methods navigation_target_sql_fields
+              returning
+                value(r_val) type string.
+
+    "! <p class="shorttext synchronized" lang="EN">Returns only the source fields as an SQL clause</p>
+    "!
+    "! @parameter r_val | <p class="shorttext synchronized" lang="EN">Fields before '/'</p>
+    methods navigation_source_sql_fields
               returning
                 value(r_val) type string.
 
@@ -139,9 +155,31 @@ class zcl_gw_request definition
               raising
                 /iwbep/cx_mgw_busi_exception.
 
+    "! <p class="shorttext synchronized" lang="EN">Returns the key properties of the current entity</p>
+    "!
+    "! @parameter r_val | <p class="shorttext synchronized" lang="EN">Properties flagged as key</p>
+    "! @raising /iwbep/cx_mgw_med_exception | <p class="shorttext synchronized" lang="EN">Meta </p>
+    methods current_entity_keys
+              returning
+                value(r_val) type zcl_gw_request=>t_entity_keys
+              raising
+                /iwbep/cx_mgw_med_exception.
+
+    methods mapped_with_current_key_values
+              importing
+                value(i_data) type any
+              returning
+                value(r_val) type ref to data
+              raising
+                /iwbep/cx_mgw_tech_exception.
+
   protected section.
 
     data an_original_request type zcl_gw_request=>t_original_request.
+
+    data a_lazy_detail_str type zcl_gw_request=>t_details.
+
+    data a_lazy_tech_detail_str type zcl_gw_request=>t_tech_details.
 
 endclass.
 class zcl_gw_request implementation.
@@ -153,12 +191,24 @@ class zcl_gw_request implementation.
   endmethod.
   method details.
 
-    r_val = me->original( )->get_request_details( ).
+    if me->a_lazy_detail_str is initial.
+
+      me->a_lazy_detail_str = me->original( )->get_request_details( ).
+
+    endif.
+
+    r_val = me->a_lazy_detail_str.
 
   endmethod.
   method tech_details.
 
-    r_val = me->details( )-technical_request.
+    if me->a_lazy_detail_str is initial.
+
+      me->a_lazy_tech_detail_str = me->details( )-technical_request.
+
+    endif.
+
+    r_val = me->a_lazy_tech_detail_str.
 
   endmethod.
   method model.
@@ -219,8 +269,10 @@ class zcl_gw_request implementation.
   endmethod.
   method sql_fields.
 
-    r_val = concat_lines_of( table = cast /iwbep/if_mgw_req_entityset( me->original( ) )->get_select_with_mandtry_fields( )
-                             sep = `, ` ).
+    r_val = cond #( when me->tech_details( )-navigation_path is initial
+                    then me->navigation_source_sql_fields( )
+                    else concat_lines_of( table = cast /iwbep/if_mgw_req_entityset( me->original( ) )->get_select_with_mandtry_fields( )
+                                          sep = `, ` ) ).
 
   endmethod.
   method throw_error_when_used.
@@ -257,6 +309,72 @@ class zcl_gw_request implementation.
     catch cx_sy_dyn_call_error.
 
     endtry.
+
+  endmethod.
+  method current_entity_keys.
+
+    r_val = value #( for <prop> in me->model( )->get_properties_of_entity( me->current_entity_type( )->get_id( ) )
+                     where ( is_key = abap_true )
+                     ( <prop> ) ).
+
+  endmethod.
+  method navigation_target_sql_fields.
+
+    data(target_fields) = value string_table( ).
+
+    loop at cast /iwbep/if_mgw_req_entityset( me->original( ) )->get_select_with_mandtry_fields( ) reference into data(field).
+
+      split field->* at `/` into table data(segments).
+
+      if lines( segments ) gt 1.
+
+        target_fields = value #( base target_fields
+                                 ( segments[ 2 ] ) ).
+
+      endif.
+
+    endloop.
+
+    r_val = concat_lines_of( table = target_fields
+                             sep = `, ` ).
+
+  endmethod.
+  method navigation_source_sql_fields.
+
+    data(source_fields) = value string_table( ).
+
+    loop at cast /iwbep/if_mgw_req_entityset( me->original( ) )->get_select_with_mandtry_fields( ) reference into data(field).
+
+      split field->* at `/` into table data(segments).
+
+      if lines( segments ) eq 1.
+
+        source_fields = value #( base source_fields
+                                 ( segments[ 1 ] ) ).
+
+      endif.
+
+    endloop.
+
+    r_val = concat_lines_of( table = source_fields
+                             sep = `, ` ).
+
+  endmethod.
+  method mapped_with_current_key_values.
+
+    data(key_properties) = me->current_entity_keys( ).
+
+    data(key_values) = me->key_tab( ).
+
+    loop at key_properties reference into data(property).
+
+      assign component property->*-external_name of structure i_data to field-symbol(<value>).
+
+      <value> = key_values[ name = property->*-external_name ]-value.
+
+    endloop.
+
+    r_val = new zcl_data_object_copy( i_data )->ref( ).
 
   endmethod.
 

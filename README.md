@@ -29,3 +29,8 @@ data(request) = new zcl_gw_request( io_tech_request_context ).
    ```abap
    data(full_request) = request->original( ).
    ```
+   
+# dependencies:
+  - [https://github.com/whothefluff/abap-messages](https://github.com/whothefluff/abap-messages)
+  - [https://github.com/whothefluff/abap-messages](https://github.com/whothefluff/abap-name-values)
+  - [https://github.com/whothefluff/abap-messages](https://github.com/whothefluff/abap-dataobject)

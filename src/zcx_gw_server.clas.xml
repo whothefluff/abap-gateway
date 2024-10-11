@@ -16,7 +16,22 @@
     <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Creates an exception. Can use a t100 msg</DESCRIPT>
+     <DESCRIPT>Creates an exception. Can use a t100 message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>INTERNAL_SERVER_ERROR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Generic. Given when no more specific message is suitable</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NOT_IMPLEMENTED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The server does not recognize the request method</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SERVICE_UNAVAILABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The server is currently unavailable</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
    <DESCRIPTIONS_SUB>

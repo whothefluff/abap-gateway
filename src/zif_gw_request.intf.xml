@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_GW_REQUEST</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Full Access Wrapper of a Gateway Request</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CURRENT_ENTITY_KEYS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the key properties of the current entity</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CURRENT_ENTITY_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the entity name of the current request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CURRENT_ENTITY_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the entity type of the current request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DETAILS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the data of the request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>FILTER_AS_SQL_WHERE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns an SQL where clause based on the $filter query</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>KEY_TAB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the keys from the details</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MAPPED_WITH_CURRENT_KEY_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns a structure reference with the key values assigned</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MATCHING_KEY_TAB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the keys that match the current entity</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MODEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the model associated with the request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NAVIGATION_SOURCE_SQL_FIELDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns only the source fields as an SQL clause</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NAVIGATION_TARGET_SQL_FIELDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns only the target fields as an SQL clause</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ORIGINAL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the standard request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SQL_FIELDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the $select query as an SQL clause</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SQL_WHERE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns an SQL where clause based on the $filter or the keys</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TECH_DETAILS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the technical data of the request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>THROW_ERROR_WHEN_USED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Throws exception if the request contains an invalid option</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CURRENT_ENTITY_KEYS</CMPNAME>
+     <SCONAME>/IWBEP/CX_MGW_MED_EXCEPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Meta</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CURRENT_ENTITY_KEYS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Properties flagged as key</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CURRENT_ENTITY_NAME</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Entity name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CURRENT_ENTITY_TYPE</CMPNAME>
+     <SCONAME>/IWBEP/CX_MGW_MED_EXCEPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Meta data exception</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CURRENT_ENTITY_TYPE</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Entity type</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DETAILS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Request data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FILTER_AS_SQL_WHERE</CMPNAME>
+     <SCONAME>/IWBEP/CX_MGW_BUSI_EXCEPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Business Exception</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FILTER_AS_SQL_WHERE</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Filter query as SQL where</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>KEY_TAB</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Keys</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MATCHING_KEY_TAB</CMPNAME>
+     <SCONAME>/IWBEP/CX_MGW_MED_EXCEPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Meta data exception</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MATCHING_KEY_TAB</CMPNAME>
+     <SCONAME>I_MAPPINGS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Mapping for the names of the keys</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MATCHING_KEY_TAB</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current entity keys</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MODEL</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Model</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NAVIGATION_SOURCE_SQL_FIELDS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Fields before &apos;/&apos;</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NAVIGATION_TARGET_SQL_FIELDS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Fields after &apos;/&apos;</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ORIGINAL</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Wrapped request</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SQL_FIELDS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Select query as SQL fields</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SQL_WHERE</CMPNAME>
+     <SCONAME>/IWBEP/CX_MGW_BUSI_EXCEPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Business Exception</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SQL_WHERE</CMPNAME>
+     <SCONAME>/IWBEP/CX_MGW_MED_EXCEPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Meta data exception</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SQL_WHERE</CMPNAME>
+     <SCONAME>I_MAPPINGS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Mapping for the names of the keys</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SQL_WHERE</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Access conditions as SQL where</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>TECH_DETAILS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Technical data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>THROW_ERROR_WHEN_USED</CMPNAME>
+     <SCONAME>/IWBEP/CX_MGW_BUSI_EXCEPTION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Business Exception</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>THROW_ERROR_WHEN_USED</CMPNAME>
+     <SCONAME>I_METHODS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Methods that shouldn&apos;t be used</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>THROW_ERROR_WHEN_USED</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Self</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -14,9 +14,59 @@
    </VSEOCLASS>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
+     <CMPNAME>BAD_REQUEST</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The request cannot be fulfilled due to bad syntax</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONFLICT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The request could not be processed because of conflict</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Creates an exception. Can use a t100 msg</DESCRIPT>
+     <DESCRIPT>Creates an exception. Can use a t100 message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>FORBIDDEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The request was legal, but the server refuses to respond</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GONE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>A resource existed earlier but is not available anymore</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>METHOD_NOT_ALLOWED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>A request of a resource used a not supported request method</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NOT_ACCEPTABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The requested resource can&apos;t generate acceptable content</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NOT_FOUND</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The requested resource could not be found</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PRECONDITION_FAILURE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The server does not meet the requester&apos;s preconditions</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PRECONDITION_REQUIREMENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The server requires the request to be conditional (RFC 6585)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>UNSUPPORTED_MEDIA_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Media type of the request unsupported by the server/resource</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
    <DESCRIPTIONS_SUB>

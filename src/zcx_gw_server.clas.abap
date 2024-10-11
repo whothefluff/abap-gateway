@@ -6,14 +6,17 @@ class zcx_gw_server definition
 
   public section.
 
-    constants: "! A generic error message, given when no more specific message is suitable
+    constants:
+               "! <p class="shorttext synchronized" lang="EN">Generic. Given when no more specific message is suitable</p>
                internal_server_error type /iwbep/mgw_http_status_code value '500',
-               "! The server either does not recognise the request method, or it lacks the ability to fulfill the request
+               "! <p class="shorttext synchronized" lang="EN">The server does not recognize the request method</p>
+               "! Or it lacks the ability to fulfill the request
                not_implemented type /iwbep/mgw_http_status_code value '501',
-               "! The server is currently unavailable (because it is overloaded or down for maintenance)
+               "! <p class="shorttext synchronized" lang="EN">The server is currently unavailable</p>
+               "! Because it is overloaded or down for maintenance
                service_unavailable type /iwbep/mgw_http_status_code value '503'.
 
-    "! <p class="shorttext synchronized" lang="EN">Creates an exception. Can use a t100 msg</p>
+    "! <p class="shorttext synchronized" lang="EN">Creates an exception. Can use a t100 message</p>
     "!
     "! @parameter i_http_response_status | <p class="shorttext synchronized" lang="EN">Response Status code</p>
     "! @parameter i_t100_message | <p class="shorttext synchronized" lang="EN">t100 message</p>
@@ -31,6 +34,8 @@ class zcx_gw_server definition
     data var3 type sy-msgv4 read-only.
 
     data var4 type sy-msgv4 read-only.
+
+  protected section.
 
 endclass.
 class zcx_gw_server implementation.

@@ -6,28 +6,32 @@ class zcx_gw_client definition
 
   public section.
 
-    constants: "! The request cannot be fulfilled due to bad syntax
+    constants:
+               "! <p class="shorttext synchronized" lang="EN">The request cannot be fulfilled due to bad syntax</p>
                bad_request type /iwbep/mgw_http_status_code value '400',
-               "! The request was a legal request, but the server is refusing to respond to it
+               "! <p class="shorttext synchronized" lang="EN">The request was legal, but the server refuses to respond</p>
                forbidden type /iwbep/mgw_http_status_code value '403',
-               "! The requested resource could not be found but may be available again in the future
+               "! <p class="shorttext synchronized" lang="EN">The requested resource could not be found</p>
+               "! It may be available in the future
                not_found type /iwbep/mgw_http_status_code value '404',
-               "! A request was made of a resource using a request method not supported by that resource
+               "! <p class="shorttext synchronized" lang="EN">A request of a resource used a not supported request method</p>
                method_not_allowed type /iwbep/mgw_http_status_code value '405',
-               "! The requested resource is only capable of generating content not acceptable according to the Accept headers sent in the request
+               "! <p class="shorttext synchronized" lang="EN">The requested resource can't generate acceptable content</p>
+               "! According to the Accept headers sent in the request
                not_acceptable type /iwbep/mgw_http_status_code value '406',
-               "! Indicates that the request could not be processed because of conflict in the request, such as an edit conflict
+               "! <p class="shorttext synchronized" lang="EN">The request could not be processed because of conflict</p>
+               "! Such as an edit conflict
                conflict type /iwbep/mgw_http_status_code value '409',
-               "! Indicates that a resources existed earlier but ist not available anymore
+               "! <p class="shorttext synchronized" lang="EN">A resource existed earlier but is not available anymore</p>
                gone type /iwbep/mgw_http_status_code value '410',
-               "! The server does not meet one of the preconditions that the requester put on the request
+               "! <p class="shorttext synchronized" lang="EN">The server does not meet the requester's preconditions</p>
                precondition_failure type /iwbep/mgw_http_status_code value '412',
-               "! The request entity has a media type which the server or resource does not support
+               "! <p class="shorttext synchronized" lang="EN">Media type of the request unsupported by the server/resource</p>
                unsupported_media_type type /iwbep/mgw_http_status_code value '415',
-               "! (RFC 6585) - The origin server requires the request to be conditional
+               "! <p class="shorttext synchronized" lang="EN">The server requires the request to be conditional (RFC 6585)</p>
                precondition_requirement type /iwbep/mgw_http_status_code value '428'.
 
-    "! <p class="shorttext synchronized" lang="EN">Creates an exception. Can use a t100 msg</p>
+    "! <p class="shorttext synchronized" lang="EN">Creates an exception. Can use a t100 message</p>
     "!
     "! @parameter i_http_response_status | <p class="shorttext synchronized" lang="EN">Response Status code</p>
     "! @parameter i_t100_message | <p class="shorttext synchronized" lang="EN">t100 message</p>
@@ -45,6 +49,8 @@ class zcx_gw_client definition
     data var3 type sy-msgv4 read-only.
 
     data var4 type sy-msgv4 read-only.
+
+  protected section.
 
 endclass.
 class zcx_gw_client implementation.

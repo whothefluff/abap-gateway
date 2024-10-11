@@ -19,7 +19,7 @@ class zcl_gw_request definition
              sql_where for zif_gw_request~sql_where,
              sql_fields for zif_gw_request~sql_fields,
              navigation_target_sql_fields for zif_gw_request~navigation_target_sql_fields,
-             navigation_source_sql_fields for zif_gw_request~navigation_source_sql_fields,
+             navig_aware_source_sql_fields for zif_gw_request~navig_aware_source_sql_fields,
              throw_error_when_used for zif_gw_request~throw_error_when_used,
              current_entity_keys for zif_gw_request~current_entity_keys,
              mapped_with_current_key_values for zif_gw_request~mapped_with_current_key_values.
@@ -33,11 +33,23 @@ class zcl_gw_request definition
 
   protected section.
 
+    types: begin of t_sql_field_key,
+           source type string,
+           target type string,
+         end of t_sql_field_key,
+         begin of t_sql_field,
+           key type zcl_gw_request=>t_sql_field_key,
+           value type string,
+         end of t_sql_field,
+         t_sql_fields type hashed table of zcl_gw_request=>t_sql_field with unique key key.
+
     data an_original_request type zif_gw_request=>t_original_request.
 
     data a_lazy_detail_str type zif_gw_request=>t_details.
 
     data a_lazy_tech_detail_str type zif_gw_request=>t_tech_details.
+
+    class-data a_sql_field_list type zcl_gw_request=>t_sql_fields.
 
   private section.
 
@@ -133,10 +145,23 @@ class zcl_gw_request implementation.
   endmethod.
   method zif_gw_request~sql_fields.
 
-    r_val = cond #( when me->tech_details( )-navigation_path is initial
-                    then me->navigation_source_sql_fields( )
-                    else concat_lines_of( table = cast /iwbep/if_mgw_req_entityset( me->original( ) )->get_select_with_mandtry_fields( )
-                                          sep = `, ` ) ).
+    try.
+
+      r_val = me->a_sql_field_list[ key = value #( source = me->tech_details( )-source_entity_set
+                                                   target = me->tech_details( )-target_entity_set ) ]-value.
+
+    catch cx_sy_itab_line_not_found.
+
+      data(fields) = me->navig_aware_source_sql_fields( ).
+
+      me->a_sql_field_list = value #( base me->a_sql_field_list
+                                      ( key = value #( source = me->tech_details( )-source_entity_set
+                                                       target = me->tech_details( )-target_entity_set )
+                                        value = fields ) ).
+
+      r_val = fields.
+
+    endtry.
 
   endmethod.
   method zif_gw_request~throw_error_when_used.
@@ -246,7 +271,7 @@ class zcl_gw_request implementation.
                              sep = `, ` ).
 
   endmethod.
-  method zif_gw_request~navigation_source_sql_fields.
+  method zif_gw_request~navig_aware_source_sql_fields.
 
     data(source_fields) = value string_table( ).
 

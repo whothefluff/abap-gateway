@@ -126,9 +126,11 @@ interface zif_gw_request public.
                 value(r_val) type string.
 
     "! <p class="shorttext synchronized" lang="EN">Returns only the source fields as an SQL clause</p>
+    "! If there is navigation the source fields are the fields before the '/' characters
+    "! If there is no navigation then the source fields are the simple field list with no post-processing
     "!
     "! @parameter r_val | <p class="shorttext synchronized" lang="EN">Fields before '/'</p>
-    methods navigation_source_sql_fields
+    methods navig_aware_source_sql_fields
               returning
                 value(r_val) type string.
 

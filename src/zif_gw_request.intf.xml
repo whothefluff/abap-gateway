@@ -57,14 +57,14 @@
      <DESCRIPT>Returns the model associated with the request</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CMPNAME>NAVIGATION_SOURCE_SQL_FIELDS</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Returns only the source fields as an SQL clause</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
      <CMPNAME>NAVIGATION_TARGET_SQL_FIELDS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Returns only the target fields as an SQL clause</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NAVIG_AWARE_SOURCE_SQL_FIELDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns only the source fields as an SQL clause</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>ORIGINAL</CMPNAME>
@@ -172,16 +172,16 @@
      <DESCRIPT>Model</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
-     <CMPNAME>NAVIGATION_SOURCE_SQL_FIELDS</CMPNAME>
-     <SCONAME>R_VAL</SCONAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Fields before &apos;/&apos;</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
      <CMPNAME>NAVIGATION_TARGET_SQL_FIELDS</CMPNAME>
      <SCONAME>R_VAL</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Fields after &apos;/&apos;</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NAVIG_AWARE_SOURCE_SQL_FIELDS</CMPNAME>
+     <SCONAME>R_VAL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Fields before &apos;/&apos;</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ORIGINAL</CMPNAME>

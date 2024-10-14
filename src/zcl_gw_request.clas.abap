@@ -78,7 +78,7 @@ class zcl_gw_request implementation.
   endmethod.
   method zif_gw_request~tech_details.
 
-    if me->a_lazy_detail_str is initial.
+    if me->a_lazy_tech_detail_str is initial.
 
       me->a_lazy_tech_detail_str = me->details( )-technical_request.
 
